@@ -1,0 +1,12 @@
+Create Security Domain:
+
+1.	/subsystem=security/security-domain=eea-security-domain/:add(cache-type=default)
+
+2.	/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
+  
+  
+Module Creation :  
+	copy the module jar file in jboss bin folder 
+ 
+1.	 module add --name=com.ee.cne.security --resources=customLoginModule-1.0-jar-with-dependencies.jar --dependencies=org.picketbox,javax.api
+ 
