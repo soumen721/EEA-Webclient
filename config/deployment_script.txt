@@ -10,3 +10,8 @@ Module Creation :
  
 1.	 module add --name=com.ee.cne.security --resources=customLoginModule-1.0-jar-with-dependencies.jar --dependencies=org.picketbox,javax.api
  
+ 
+Log Frofile:
+1.	/subsystem=logging/logging-profile=eea-security-profile:add
+
+2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
