@@ -47,9 +47,12 @@
 	<login-config>
 		<auth-method>BASIC</auth-method>
 		<realm-name>default</realm-name>
+		<form-login-config>
+            <form-error-page>/ErrorPage.html</form-error-page>
+        </form-login-config>
 	</login-config>
 
-	<error-page>
+    <error-page>
 		<location>/ErrorPage.html</location>
 	</error-page>
 </web-app>
