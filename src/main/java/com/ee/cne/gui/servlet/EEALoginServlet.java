@@ -40,6 +40,7 @@ public class EEALoginServlet extends HttpServlet {
 		request.getSession(true).invalidate();
 		// return response
 		writer.println(htmlRespone);
+		//throw new IOException("Excel");
 	}
 
 }

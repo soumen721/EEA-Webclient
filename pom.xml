@@ -52,11 +52,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>customLogin</groupId>
 			<artifactId>CNE-custom-login-module</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
