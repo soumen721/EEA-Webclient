@@ -29,18 +29,14 @@ public class EEALoginServlet extends HttpServlet {
 
 		// build HTML code
 		String htmlRespone = "<html>";
-		htmlRespone += "<h2>Your username is : " + request.getHeader("HTTP_SM_UID") + "<br/>";
+		htmlRespone += "<h2 align='center'>Your username is : " + request.getHeader("HTTP_SM_UID") + "<br/>";
 		htmlRespone += "And Your ROLEs are : " + request.getHeader("HTTP_SM_ROLES") + "<br/>";
-		htmlRespone += "And Your MSISDN is : " + request.getAttribute("HTTP_TK_MSISDN") + "</h2>";
+		htmlRespone += " SM LOGIN Successful</h2>";
 		htmlRespone += "</html>";
-
-		System.out.println("User:: " + request.getHeader("HTTP_SM_UID"));
-		System.out.println("SMISDN:: " + request.getUserPrincipal());
 
 		request.getSession(true).invalidate();
 		// return response
 		writer.println(htmlRespone);
-		//throw new IOException("Excel");
 	}
 
 }
