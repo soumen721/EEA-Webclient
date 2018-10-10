@@ -8,11 +8,11 @@ Create Security Domain:
 Module Creation :  
 	copy the module jar file in jboss bin folder 
  
-1.	 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api
+1.	 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.api
  
 	module remove --name=com.ee.cne.security
  
-Log Frofile:
+Log Profile:
 1.	/subsystem=logging/logging-profile=eea-security-profile:add
 
 2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
