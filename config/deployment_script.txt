@@ -16,3 +16,12 @@ Log Profile:
 1.	/subsystem=logging/logging-profile=eea-security-profile:add
 
 2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
+
+
+
+---------------For Certificates
+
+-Djavax.net.ssl.keyStore=C:\Software\mock.keystore -Djavax.net.ssl.keyStorePassword=changeit 
+-Djavax.net.debug=ssl:handshake:verbose:keymanager:trustmanager -Djava.security.debug=access:stack 
+-Djavax.net.ssl.trustStore=C:\Software\mock.keystore -Djavax.net.ssl.trustStorePassword=changeit 
+-Dorg.jboss.security.ignoreHttpsHost=true 
