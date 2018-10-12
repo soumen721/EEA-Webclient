@@ -1,27 +1,33 @@
+FOR Custom Authentication
 Create Security Domain:
 
 1.	/subsystem=security/security-domain=eea-security-domain/:add(cache-type=default)
 
 2.	/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
   
-  
+Log Profile:
+
+1.	/subsystem=logging/logging-profile=eea-security-profile:add
+
+2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO) 
+	
+Not Required :
+
+	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
+	  
 Module Creation :  
 	copy the module jar file in jboss bin folder 
  
 1.	 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.api
  
-	module remove --name=com.ee.cne.security
- 
-Log Profile:
-1.	/subsystem=logging/logging-profile=eea-security-profile:add
+to remove module - for Rollback
+	 module remove --name=com.ee.cne.security
 
-2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
-
-
-
----------------For Certificates
+---------------	For Certificates for Testing	---------------------------
 
 -Djavax.net.ssl.keyStore=C:\Software\mock.keystore -Djavax.net.ssl.keyStorePassword=changeit 
 -Djavax.net.debug=ssl:handshake:verbose:keymanager:trustmanager -Djava.security.debug=access:stack 
--Djavax.net.ssl.trustStore=C:\Software\mock.keystore -Djavax.net.ssl.trustStorePassword=changeit 
--Dorg.jboss.security.ignoreHttpsHost=true 
+-Djavax.net.ssl.trustStore=C:\Project_Details\EEA\custom-login-module\EEA-Webclient\config\mock.keystore -Djavax.net.ssl.trustStorePassword=changeit 
+-Dorg.jboss.security.ignoreHttpsHost=true  
+
+---------------------------------------------------------------------------------------------------------------------------------------	
