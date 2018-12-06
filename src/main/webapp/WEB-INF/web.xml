@@ -17,14 +17,14 @@
 
 	<servlet-mapping>
 		<servlet-name>ToolkitLoginServlet</servlet-name>
-		<url-pattern>/ToolkitLoginServlet</url-pattern>
+		<url-pattern>/SMLoginServlet</url-pattern>
 	</servlet-mapping>
 
 	<security-constraint>
 		<display-name>Restrict access to cc user</display-name>
 		<web-resource-collection>
 			<web-resource-name>Restrict access to cc user</web-resource-name>
-			<url-pattern>/ToolkitLoginServlet/*</url-pattern>
+			<url-pattern>/SMLoginServlet/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>cc-user</role-name>

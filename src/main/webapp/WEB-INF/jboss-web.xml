@@ -4,7 +4,7 @@
        This can be used to disable the Cache-Control header -->
     <security-domain>eea-security-domain</security-domain>
     <disable-audit>true</disable-audit> 
-    <context-root>/eea-authenticator</context-root>
+    <context-root>/cea-authenticator</context-root>
        <valve>
         <class-name>com.ee.cne.gui.authentication.SMToolkitAuthenticator</class-name>
         <param>
