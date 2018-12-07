@@ -13,13 +13,13 @@ Log Profile:
 	
 Not Required :
 
-	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(level=DEBUG)
+	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:write-attribute(name="level", value="ERROR")
 	  
 Module Creation :  
-	copy the module jar file in jboss bin folder 
+	copy the module jar file in jboss bin/any folder location  
  
-1.	 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.api
- 
+1.	 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar;config.properties --module-xml=module.xml --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.ap
+
 to remove module - for Rollback
 	 module remove --name=com.ee.cne.security
 
