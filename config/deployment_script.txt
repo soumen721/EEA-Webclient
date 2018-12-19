@@ -33,6 +33,16 @@ Module:
 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar;config.properties --module-xml=module.xml --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.ap
 
 
+Deployment:
+reload --host=master
+/host=master:reload
+/server-groups=main-server-group:reload-servers
+
+deploy  C:\Software\jboss-eap-6.4\EEA-Webclient-1.0.war  --name=EEA-Webclient-1.0.war --server-groups=main-server-group
+undeploy  EEA-Webclient-1.0.war
+
+main-server-group
+
 ---------------	For Certificates for Testing	---------------------------
 
 -Djavax.net.ssl.keyStore=C:\Software\mock.keystore -Djavax.net.ssl.keyStorePassword=changeit 
