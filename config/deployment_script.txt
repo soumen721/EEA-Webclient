@@ -2,13 +2,11 @@ FOR Custom Authentication
 Create Security Domain:
 
 1.	/subsystem=security/security-domain=eea-security-domain/:add(cache-type=default)
-
 2.	/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
-  
+
 Log Profile:
 
 1.	/subsystem=logging/logging-profile=eea-security-profile:add
-
 2.	/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO) 
 	
 Not Required :
@@ -22,6 +20,18 @@ Module Creation :
 
 to remove module - for Rollback
 	 module remove --name=com.ee.cne.security
+
+------------------------------- Domain Mode----------------------------  
+
+/profile=default/subsystem=security/security-domain=eea-security-domain/:add(cache-type=default)
+/profile=default/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
+
+/profile=default/subsystem=logging/logging-profile=eea-security-profile:add
+/profile=default/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO) 
+
+Module:
+module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar;config.properties --module-xml=module.xml --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.ap
+
 
 ---------------	For Certificates for Testing	---------------------------
 
