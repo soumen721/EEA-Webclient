@@ -1,0 +1,37 @@
+FOR Custom Authentication
+------------------------------- Domain Mode----------------------------  
+Security Domain:
+
+/profile=full/subsystem=security/security-domain=eea-security-domain:add(cache-type=default)
+
+/profile=full/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
+
+Logger:
+
+/profile=full/subsystem=logging/logging-profile=eea-security-profile:add
+/profile=full/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO)
+
+Module:
+
+module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar;config.properties --module-xml=module.xml --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.ap
+
+------------------------
+Deployment:
+reload --host=master
+/host=master:reload
+/server-groups=main-server-group:reload-servers
+
+deploy  C:\Project_Software\jboss-eap-6.4\EEA-Webclient-1.0.war  --name=EEA-Webclient-1.0.war --server-groups=main-server-group
+undeploy EEA-Webclient-1.0.war --server-groups=main-server-group
+
+undeploy pcrfweb-1.0.war --server-groups=main-server-group
+
+deploy  C:\Project_Software\jboss-eap-6.4\pcrfweb-1.0.war  --name=pcrfweb-1.0.war --server-groups=main-server-group
+---------------	For Certificates for Testing	---------------------------
+
+-Djavax.net.ssl.keyStore=C:\Software\mock.keystore -Djavax.net.ssl.keyStorePassword=changeit 
+-Djavax.net.debug=ssl:handshake:verbose:keymanager:trustmanager -Djava.security.debug=access:stack 
+-Djavax.net.ssl.trustStore=C:\Project_Details\EEA\custom-login-module\EEA-Webclient\config\mock.keystore -Djavax.net.ssl.trustStorePassword=changeit 
+-Dorg.jboss.security.ignoreHttpsHost=true  
+
+---------------------------------------------------------------------------------------------------------------------------------------	
