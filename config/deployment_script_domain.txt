@@ -2,14 +2,14 @@ FOR Custom Authentication
 ------------------------------- Domain Mode----------------------------  
 Security Domain:
 
-/profile=full/subsystem=security/security-domain=eea-security-domain:add(cache-type=default)
+/profile=full-ha/subsystem=security/security-domain=eea-security-domain:add(cache-type=default)
 
-/profile=full/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
+/profile=full-ha/subsystem=security/security-domain=eea-security-domain/authentication=classic:add(login-modules=[{"code"=>"com.ee.cne.security.auth.spi.SMLoginModule", "flag"=>"sufficient" }, {"code"=>"com.ee.cne.security.auth.spi.ToolkitLoginModule", "flag"=>"sufficient"}] )
 
 Logger:
 
-/profile=full/subsystem=logging/logging-profile=eea-security-profile:add
-/profile=full/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO)
+/profile=full-ha/subsystem=logging/logging-profile=eea-security-profile:add
+/profile=full-ha/subsystem=logging/logging-profile=eea-security-profile/logger=com.ee.cne:add(use-parent-handlers=true, level=INFO)
 
 Module:
 

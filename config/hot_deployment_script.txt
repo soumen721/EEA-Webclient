@@ -2,14 +2,13 @@ deployment-overlay remove --name=new-deployment-overlay_web_xml
 deployment-overlay remove --name=new-deployment-overlay_jboss_web_xml
 deployment-overlay remove --name=new-deployment-overlay_jboss_deploy_xml
 
-deployment-overlay add --name=new-deployment-overlay_web_xml --content=WEB-INF/web.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\web.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected
+deployment-overlay add --name=new-deployment-overlay_web_xml --content=WEB-INF/web.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\web.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected --server-groups=main-server-group
 
 
 deployment-overlay remove --name=new-deployment-overlay_jboss_web_xml
 
-deployment-overlay add --name=new-deployment-overlay_jboss_web_xml --content=WEB-INF/jboss-web.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\jboss-web.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected
-
+deployment-overlay add --name=new-deployment-overlay_jboss_web_xml --content=WEB-INF/jboss-web.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\jboss-web.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected --server-groups=main-server-group
 
 deployment-overlay remove --name=new-deployment-overlay_jboss_deploy_xml
 
-deployment-overlay add --name=new-deployment-overlay_jboss_deploy_xml --content=WEB-INF/jboss-deployment-structure.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\jboss-deployment-structure.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected
+deployment-overlay add --name=new-deployment-overlay_jboss_deploy_xml --content=WEB-INF/jboss-deployment-structure.xml=C:\Project_Software\jboss-eap-6.4\dependency_file\jboss-deployment-structure.xml --deployments=EEA-Webclient-1.0.war --redeploy-affected --server-groups=main-server-group
