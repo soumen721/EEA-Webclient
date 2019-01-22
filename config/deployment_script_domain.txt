@@ -15,9 +15,13 @@ Module:
 
 module add --name=com.ee.cne.security --resources=CNE-custom-login-module-1.0.jar;config.properties --module-xml=module.xml --dependencies=org.picketbox,javax.api,javax.servlet.api,org.jboss.logging,org.jboss.as.web,javax.security.jacc.api,javax.xml.ws.api,javax.annotation.api,javax.jws.ap
 
+----------------------------------
+/system-property=javax.net.ssl.trustStore:add(value=C:\Project_Details\EEA\custom-login-module\EEA-Webclient\config\mock.keystore)
+/system-property=javax.net.ssl.trustStorePassword:add(value=changeit)
+/system-property=org.jboss.security.ignoreHttpsHost:add(value=true)
 ------------------------
 Deployment:
-reload --host=master
+reload --host=host0-master
 /host=master:reload
 /server-groups=main-server-group:reload-servers
 

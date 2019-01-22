@@ -17,5 +17,7 @@
         <module name="javax.xml.ws.api"/>
         <module name="javax.annotation.api"/>
         <module name="javax.jws.api"/>
+		<module name="org.apache.cxf"/>
+		<module name="org.apache.cxf.impl"/>
     </dependencies>
 </module>
